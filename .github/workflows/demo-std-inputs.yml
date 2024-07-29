@@ -23,6 +23,13 @@ on:
 jobs:
   Print-Name:
     runs-on: ubuntu-latest
-
+    env:
+      firstNameSanitised: ${{ inputs.firstName }}
+      lastNameSanitised: ${{ inputs.lastName }}
     steps:
-      - run: echo ${{ inputs.firstName }} ${{ inputs.lastName }}
+    
+      # Don't do the following. It is vulnerable to script injection via the inputs
+      # - run: echo ${{ inputs.firstName }} ${{ inputs.lastName }}
+
+      # Use the inputs via an intermediate environmental variable
+      - run: echo Hello $firstNameSanitised $lastNameSanitised
