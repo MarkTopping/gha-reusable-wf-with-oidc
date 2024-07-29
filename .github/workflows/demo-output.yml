@@ -10,6 +10,10 @@ on:
         description: Output from resuable workflow
         # Map the Workflow outputs to Job Outputs
         value: ${{ jobs.Get_Value.outputs.outputValue }}
+        
+      mySensitiveOutput:
+        description: Output from a reusable workflow that is considered sensitive
+        value: ${{ jobs.Get_Value.outputs.sensitiveOutputValue }}
 
 jobs:
 
@@ -19,7 +23,13 @@ jobs:
     # Map the job outputs to step outputs
     outputs:
       outputValue: ${{ steps.step1.outputs.outputVal }}
+      sensitiveOutputValue: ${{ steps.step2.outputs.outputVal }}
 
     steps:
       - id: step1
         run: echo "outputVal=Hello. I am a string curated within a reusable workflow." >> $GITHUB_OUTPUT
+
+      - id: step2
+        run: |
+          value=$((RANDOM))
+          echo "sensitiveOutputValue=$value" >> "$GITHUB_OUTPUT"
