@@ -32,4 +32,4 @@ jobs:
       # - run: echo ${{ inputs.firstName }} ${{ inputs.lastName }}
 
       # Use the inputs via an intermediate environmental variable
-      - run: echo ${{ inputs.firstNameSanitised }} ${{ inputs.lastNameSanitised }}
+      - run: echo Hello $firstNameSanitised $lastNameSanitised
