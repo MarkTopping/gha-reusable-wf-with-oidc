@@ -25,4 +25,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo ${{ inputs.firstName }} ${{ inputs.lastName }}
+      # Don't do the following. It is vulnerable to script injection via the inputs
+      # - run: echo ${{ inputs.firstName }} ${{ inputs.lastName }}
