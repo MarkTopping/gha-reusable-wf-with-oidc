@@ -1,1 +1,25 @@
+name: reusable_with_outputs
 
+on:
+  workflow_dispatch:
+    # You cannot define outputs from a manually triggered workflow
+    
+  workflow_call:
+    outputs:
+      myOutput:
+        description: Output from resuable workflow
+        # Map the Workflow outputs to Job Outputs
+        value: ${{ jobs.Get_Value.outputs.outputValue }}
+
+jobs:
+
+  Get_Value:
+    name: Generate an Output Value
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      outputValue: ${{ steps.step1.outputs.outputVal }}
+
+    steps:
+      - id: step1
+        run: echo "outputVal=Hello. I am a string curated within a reusable workflow." >> $GITHUB_OUTPUT
