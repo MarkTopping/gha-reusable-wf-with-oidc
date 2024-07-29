@@ -34,6 +34,4 @@ jobs:
           secret=A${RANDOM}B${RANDOM}C${RANDOM}
           echo "::add-mask::$secret"       # Mask the secret in logs
           echo "The secret is:" $secret    # Added this to prove the masking works
-          echo "outputVal=$secret" >> $GITHUB_ENV
-
-      - run: echo "::set-output name=outputVal::$secret"
+          echo "outputVal=$secret" >> $GITHUB_OUTPUT
