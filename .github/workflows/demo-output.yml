@@ -31,5 +31,5 @@ jobs:
 
       - id: step2
         run: |
-          value=${RANDOM}
+          value=A${RANDOM}B${RANDOM}C${RANDOM}
           echo "outputVal=$value" >> "$GITHUB_OUTPUT"
