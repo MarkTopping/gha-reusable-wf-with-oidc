@@ -32,4 +32,4 @@ jobs:
       - id: step2
         run: |
           value=${RANDOM}
-          echo "sensitiveOutputValue=$value" >> "$GITHUB_OUTPUT"
+          echo "outputVal=$value" >> "$GITHUB_OUTPUT"
