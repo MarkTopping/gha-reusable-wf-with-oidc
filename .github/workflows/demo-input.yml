@@ -1,1 +1,28 @@
-# TODO
+name: reusable_with_inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      firstName:
+        type: string
+        required: false
+        default: "Mr/Mrs"
+      lastName: 
+        type: string
+        required: true
+  workflow_call:
+    inputs:
+      firstName:
+        type: string
+        required: false
+        default: "Mr/Mrs"
+      lastName: 
+        type: string
+        required: true
+
+jobs:
+  Print-Name:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo ${{ inputs.firstName }} ${{ inputs.lastName }}
