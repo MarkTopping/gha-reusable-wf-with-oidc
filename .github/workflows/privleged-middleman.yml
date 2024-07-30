@@ -1,0 +1,13 @@
+name: Call Privileged Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  
+  middleman_job:
+    uses: MarkTopping/gha-reusable-wf-with-oidc/.github/workflows/demo-privileged-upload-image.yml@main
+    secrets: 
+      IMAGE_REGISTRY_WRITE_KEY: ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
+      
+        
