@@ -9,6 +9,8 @@ on:
 jobs:
   reusable_job:
     runs-on: ubuntu-latest
+    # Co-Pilot (wrongly) suggested that you can use an environment secret as a means of making it so that the caller does not need to
+    # pass the secret into the reusable workflow. This doesn't work. 
     environment: privileged
     env:
       # The Secret has been put into an EnvVar because this sanitised any special characters.
