@@ -35,3 +35,6 @@ jobs:
           echo "::add-mask::$secret"       # Mask the secret in logs
           echo "The secret is:" $secret    # Added this to prove the masking works
           echo "outputVal=$secret" >> $GITHUB_OUTPUT
+
+          # The masking creates an issue though. The GubHub runner detects the secret output and removes it. 
+          # The caller workflow does not recieve the output. The encryption solution is required to solve this
