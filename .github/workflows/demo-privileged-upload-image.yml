@@ -12,4 +12,6 @@ jobs:
     environment: privileged
     steps:
       - name: Use the secret
-        run: echo "Using the secret:" ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
+        run: |
+          echo "Using the secret:" ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
+          echo "(partial):" ${secrets.IMAGE_REGISTRY_WRITE_KEY:0:2}
