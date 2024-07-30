@@ -10,8 +10,12 @@ jobs:
   reusable_job:
     runs-on: ubuntu-latest
     environment: privileged
+    env:
+      # The Secret has been put into an EnvVar because this sanitised any special characters.
+      # which would otherwise cause the shell commands to error when the secret value is accessed
+      env_secretValue: ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
     steps:
       - name: Use the secret
         run: |
           echo "Using the secret:" ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
-          echo "(partial):" ${secrets.IMAGE_REGISTRY_WRITE_KEY:0:2}
+          echo "(partial):" ${env_secretValue:0:2}
