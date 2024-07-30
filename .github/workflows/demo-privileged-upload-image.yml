@@ -1,0 +1,15 @@
+name: Upload Image
+
+on:
+  workflow_call:
+    secrets:
+      IMAGE_REGISTRY_WRITE_KEY:
+        required: true
+
+jobs:
+  reusable_job:
+    runs-on: ubuntu-latest
+    environment: privileged
+    steps:
+      - name: Use the secret
+        run: echo "Using the secret:" ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
