@@ -11,7 +11,7 @@ jobs:
   middleman_job:
     uses: MarkTopping/gha-reusable-wf-with-oidc/.github/workflows/demo-privileged-upload-image.yml@main
     secrets: 
-      # IMAGE_REGISTRY_WRITE_KEY: ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
-      IMAGE_REGISTRY_WRITE_KEY: test
+      IMAGE_REGISTRY_WRITE_KEY: ${{ secrets.IMAGE_REGISTRY_WRITE_KEY }}
+      # IMAGE_REGISTRY_WRITE_KEY: test # this does get passed in
       
         
