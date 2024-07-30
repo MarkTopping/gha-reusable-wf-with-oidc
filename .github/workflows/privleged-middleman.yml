@@ -2,6 +2,9 @@ name: Call Privileged Workflow
 
 on:
   workflow_call:
+    secrets:
+      IMAGE_REGISTRY_WRITE_KEY:
+        required: false
 
 jobs:
   
